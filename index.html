@@ -1,8 +1,42 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <button type="button" onclick="sayDataViz()">CLICK HERE TO SEE SOME MAGIC</button>
 
-<svg id="canvas" width="800px" height="800px"></svg> <!-- Our HTML page contains an SVG element which we will
-                             use as our canvas -->
+<svg id="canvas" width="800px" height="800px">
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="05,30
+            15,10
+            25,30" />
+
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="35,30
+            45,10
+            55,30" />
+
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="65,30
+            75,10
+            85,30" />
+
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="95,30
+            105,10
+            115,30" />
+
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="125,30
+            135,10
+            145,30" />
+
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="155,30
+            165,10
+            175,30" />
+
+  <polygon fill="yellow" stroke="yellow" stroke-width="2"
+    points="185,30
+            195,10
+            205,30" />
+</svg>
 <script>
   // http://eyalarubas.com/getting-started-with-d3js.html
   console.log(d3); // test if d3 is loaded
@@ -27,6 +61,7 @@
 
   // Add an SVG
   var canvas = d3.select('#canvas');
+
   // Add Circles
   // We bind our circles data to DOM elements (or SVG shapes in our case).
   var circles = canvas
@@ -407,17 +442,10 @@
           return d.c;
       });
 
-
-   var line = canvas.append("line")
-    .attr("x1", 5)
-    .attr("y1", 5)
-    .attr("x2", 50)
-    .attr("y2", 50)
-    .attr("stroke-width", 2)
-    .attr("stroke", "black");
-
-   // Add Polygons
-
+    /*
+    * This function makes an animation with the already existing rectangles.
+    * It will "write" DATA VIZ on the canvas.
+    */
     function sayDataViz() {
       // now we make some changes in our data
       // change coordinates of the rectangles:
@@ -506,6 +534,7 @@
         .remove();
     }
 
+    // function from https://www.w3schools.com/js/js_random.asp
     function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min) ) + min;
   }
