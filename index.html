@@ -1,4 +1,5 @@
 <script src="https://d3js.org/d3.v5.min.js"></script>
+<button type="button" onclick="changePosition()">SEE SOME MAGIC</button>
 
 <svg id="canvas" width="800px" height="800px"></svg> <!-- Our HTML page contains an SVG element which we will
                              use as our canvas -->
@@ -54,22 +55,52 @@
       var data2 = [{
         x: '5%',
         y: '5%',
-        width: '1%',
-        height: '1%',
+        width: '2%',
+        height: '2%',
         c: 'red'
     }, {
         x: '5%',
-        y: '15%',
-        width: '1%',
-        height: '1%',
-        c: 'green'
+        y: '5%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
     }, {
-        x: '75%',
-        y: '85%',
-        width: '1%',
-        height: '1%',
-        c: 'blue'
-    }];;
+        x: '5%',
+        y: '7%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
+    }, {
+        x: '5%',
+        y: '7%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
+    }, {
+        x: '5%',
+        y: '9%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
+    }, {
+        x: '5%',
+        y: '9%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
+    }, {
+        x: '5%',
+        y: '11%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
+    },  {
+        x: '5%',
+        y: '11%',
+        width: '2%',
+        height: '2%',
+        c: 'red'
+    }];
 
     var rectangles = canvas
       .selectAll('rect')
@@ -92,7 +123,7 @@
       })
       .attr('fill', function(d){ // color of the circle
           return d.c;
-      })
+      });
 
 
    var line = canvas.append("line")
@@ -108,57 +139,61 @@
     function changePosition() {
       // now we make some changes in our data
       // change coordinates of the first circle:
-      data[0].x = '50%';
-      data[1].x = '50%';
-      data[2].x = '50%';
+      data2[0].x = '35%';
+      data2[1].x = '37%';
+      data2[2].x = '35%';
+      data2[3].x = '39%';
+      data2[4].x = '35%';
+      data2[5].x = '39%';
+      data2[6].x = '35%';
+      data2[7].x = '37%';
 
+      /*
       // add a new circle:
       data.push({
         x: '25%',
         y: '50%',
         r: '1%',
         c: 'magenta'
-      });
+      }); */
 
       //we bind our data with circles again as we did before
-      var circles = canvas
-        .selectAll('circle')
-        .data(data);
+      var rectangles = canvas
+        .selectAll('rect')
+        .data(data2);
 
       // the below code will only add the new circles but will not update the
       // existing ones (note that we modified the x coordinate of the first
       // circle).
-      circles
+
+      /*
+      rectangles
         .enter()
-        .append('circle')
-        // set initial (pre-transition) attributes:
-        .attr('cx', function(d) { // x coordinate of the circle
-            return d.x;
-        })
-        .attr('cy', function(d) { // y coordinate of the circle
+        .append('rect')
+        .attr('y', function(d) { // y coordinate of the circle
             return d.y;
+        })
+        .attr('width', function(d){
+          return d.width;
+        })
+        .attr('height', function(d){
+          return d.height;
         })
         .attr('fill', function(d){ // color of the circle
             return d.c;
         })
-        .attr('r', 0)
-        // start transition:
         .transition()
-        // set final (post transition) attributes:
-        .attr('r', function(d) { // radius of the circle
-            return d.r;
-        });
+        .attr('x', function(d) { // x coordinate of the circle
+            return d.x;
+        }); */
 
       // in order to update the attributes of the existing circles (in this
       //case only the x and y coordinates) we do the following:
 
-      circles
+      rectangles
         .transition()
-        .attr('cx', function(d) {
+        .attr('x', function(d) {
             return d.x;
-        })
-        .attr('cy', function(d) {
-            return d.y;
         });
 
       // exit() filters the selection only to select elements which are bound
@@ -177,4 +212,3 @@
 
    // This is a test to see if the 1st github requirement is all set:)
 </script>
-<button type="button" onclick="changePosition()">SEE SOME MAGIC</button>
