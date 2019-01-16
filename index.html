@@ -40,20 +40,22 @@
 <script>
   // http://eyalarubas.com/getting-started-with-d3js.html
   console.log(d3); // test if d3 is loaded
+
+  // Circles
   var data = [{
     x: '25%',
     y: '25%',
-    r: '1%',
+    r: '5%',
     c: 'red'
 }, {
     x: '25%',
     y: '50%',
-    r: '1%',
+    r: '10%',
     c: 'green'
 }, {
     x: '75%',
     y: '75%',
-    r: '1%',
+    r: '7%',
     c: 'blue'
 }];;
 
@@ -61,6 +63,37 @@
 
   // Add an SVG
   var canvas = d3.select('#canvas');
+
+  // add lines
+
+  // DASHED LINE STYLE LEARNED FROM http://www.d3noob.org/2013/01/making-dashed-line-in-d3js.html
+  var line1 = canvas.append("line")
+    .attr("x1", '75%')
+    .attr("y1", '25%')
+    .attr("x2", '90%')
+    .attr("y2", '30%')
+    .attr("stroke-width", '5%')
+    .style("stroke-dasharray", ("3, 3"))
+    .attr("stroke", "purple");
+
+  var line2 = canvas.append("line")
+    .attr("x1", '75%')
+    .attr("y1", '75%')
+    .attr("x2", '85%')
+    .attr("y2", '50%')
+    .attr("stroke-width", '10%')
+    .style("stroke-dasharray", ("3, 5"))
+    .attr("stroke", "cyan");
+
+  var line2 = canvas.append("line")
+    .attr("x1", '75%')
+    .attr("y1", '75%')
+    .attr("x2", '85%')
+    .attr("y2", '50%')
+    .attr("stroke-width", '10%')
+    .style("stroke-dasharray", ("3, 5"))
+    .attr("stroke", "cyan");
+
 
   // Add Circles
   // We bind our circles data to DOM elements (or SVG shapes in our case).
@@ -533,11 +566,6 @@
         .exit()
         .remove();
     }
-
-    // function from https://www.w3schools.com/js/js_random.asp
-    function getRndInteger(min, max) {
-      return Math.floor(Math.random() * (max - min) ) + min;
-  }
 
 
 
