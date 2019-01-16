@@ -1,5 +1,8 @@
 Assignment 1 - Hello World: GitHub and d3  
 ===
+Link to my github page: https://camibrumi.github.io/
+Link to index.html: https://camibrumi.github.io/01-ghd3/index.html
+Link to README.pdf: https://camibrumi.github.io/01-ghd3/README.pdf
 
 This is a starting project to make sure you can write and host a webpage that generates graphics using d3. 
 
@@ -32,7 +35,7 @@ GitHub Details
 - Fork the GitHub Repository for Assignment 1. You now have a copy associated with your username.
 - Make changes to index.html to fulfill the project requirements. 
 - Make sure your "master" branch matches your "gh-pages" branch. See the GitHub Guides referenced above if you need help.
-- Edit the README.md with a link to your gh-pages site "http://YourUsernameGoesHere.github.io/01-ghd3/index.html".
+- Edit the README.md with a link to your gh-pages site "http://camibrumi.github.io/01-ghd3/index.html".
 - To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
 
 Vis Details
